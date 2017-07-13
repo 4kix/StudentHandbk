@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>testProj</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <servlet-name>ActionMenu</servlet-name>
+    <servlet-class>by.iba.courses.ActionMenu</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ActionMenu</servlet-name>
+    <url-pattern>/ActionMenu</url-pattern>
+  </servlet-mapping>
+  <filter>
+    <filter-name>AuthFilter</filter-name>
+    <filter-class>by.iba.courses.security.AuthFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>AuthFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <filter>
+    <filter-name>PermissionFilter</filter-name>
+    <filter-class>by.iba.courses.security.PermissionFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>PermissionFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+</web-app>
