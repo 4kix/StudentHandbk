@@ -62,7 +62,6 @@ public class StudListController extends HttpServlet {
 	 try {
 		 	StudentDAO dao = mydb.getStudentDAO(mydb.getConnection());
 		 	dataList = dao.getAll();
-		 	//con.close();
 	 } 
 	 catch(DAOException e) {
 		 	throw new ServletException(e);

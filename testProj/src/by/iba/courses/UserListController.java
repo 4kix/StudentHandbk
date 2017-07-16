@@ -64,7 +64,6 @@ public class UserListController extends HttpServlet {
 		 try  {
 			 	UserDAO dao = mydb.getUserDAO(mydb.getConnection());
 			 	dataList = dao.getAll();
-			 	//con.close();
 		 } 
 		 catch(DAOException e) {
 			 	throw new ServletException(e);

@@ -39,8 +39,7 @@ public class UserFormController extends HttpServlet {
 	
 	protected void fillFields(HttpServletRequest request, HttpServletResponse response) {
 		
-		request.setAttribute("action", request.getParameter("action"));
-		
+		request.setAttribute("action", request.getParameter("action"));	
 		request.setAttribute("username", request.getParameter("username"));
 		request.setAttribute("password", request.getParameter("password"));
 		request.setAttribute("role", request.getParameter("role"));

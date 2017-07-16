@@ -62,7 +62,6 @@ public class ProfListController extends HttpServlet {
 	 try {
 		 	ProfessorDAO dao = mydb.getProfessorDAO(mydb.getConnection());
 		 	dataList = dao.getAll();
-		 	//con.close();
 	 } 
 	 catch(DAOException e) {
 		 	throw new ServletException(e);

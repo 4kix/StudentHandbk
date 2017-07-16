@@ -54,7 +54,7 @@ public class AuthController extends HttpServlet {
 
 
 	
-	//проверка соответствия имени пользователя и пароля
+	//checking username and password
 	private User getUser(String login, String password) throws ServletException {		
 		
 		User user  = new User();
@@ -63,7 +63,6 @@ public class AuthController extends HttpServlet {
 		 try  {		 
 			 	UserDAO dao = mydb.getUserDAO(factory.createConnection());
 			 	user = dao.authCheck(login, password);
-			 	//con.close();
 		 } 
 		 catch(DAOException e) {
 			 throw new ServletException(e);

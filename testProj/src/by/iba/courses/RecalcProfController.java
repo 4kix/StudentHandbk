@@ -57,7 +57,6 @@ public class RecalcProfController extends HttpServlet {
 		 try  {
 			 	ProfessorDAO dao = mydb.getProfessorDAO(mydb.getConnection());
 			 	dao.recalcAvgMark();
-			 	//con.close();
 		 } 
 		 catch(DAOException e) {
 			 	throw new ServletException(e);

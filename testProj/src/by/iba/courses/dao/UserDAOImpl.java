@@ -38,6 +38,14 @@ public class UserDAOImpl implements UserDAO {
 		}
 		catch (SQLException e) {
 			throw new DAOException(e);
+		} finally {
+			if (connection != null) {
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					throw new DAOException(e);
+				}
+			}
 		}
 		return "Success!";
 	}
@@ -63,6 +71,14 @@ public class UserDAOImpl implements UserDAO {
 			stm.close();
 		} catch (SQLException e) {
 			throw new DAOException(e);
+		} finally {
+			if (connection != null) {
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					throw new DAOException(e);
+				}
+			}
 		}
         return user;
 	}
@@ -154,7 +170,10 @@ public class UserDAOImpl implements UserDAO {
 	public User authCheck(String login, String password) throws DAOException {
 		
 		String sql = String.format("SELECT USER,ROLE FROM lapusha.users where (USER = ? and PASSWORD = ?)", login, password);
-		// "SELECT \"USER\",ROLE FROM lapusha.users where (\"USER\" = '%s' and PASSWORD = '%s')
+		/*
+		 * DB2 query:
+		 * "SELECT \"USER\",ROLE FROM lapusha.users where (\"USER\" = '%s' and PASSWORD = '%s')
+		 */
 		User user = new User();
 		PreparedStatement s = null;
 		ResultSet rs = null;

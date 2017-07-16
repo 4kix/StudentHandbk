@@ -62,7 +62,6 @@ public class GroupListController extends HttpServlet {
 	
 		 	GroupDAO dao = mydb.getGroupDAO(mydb.getConnection());
 		 	dataList = dao.getAll();
-		 	//con.close();
 	 } 
 	 catch(DAOException e) {
 		 	throw new ServletException(e);

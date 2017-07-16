@@ -59,7 +59,6 @@ public class UserSaveController extends HttpServlet {
 		 try {		 	
 			 	UserDAO dao = mydb.getUserDAO(mydb.getConnection());
 			 	message =  dao.add(user); 
-			 	//con.close();
 			 			 	
 		 } 
 		 catch(DAOException e) {
@@ -82,7 +81,6 @@ public class UserSaveController extends HttpServlet {
 		 try  {
 			 	UserDAO dao = mydb.getUserDAO( mydb.getConnection());
 			 	dao.update(username, user);  
-			 	//con.close();
 			 			 	
 		 } 
 		 catch(DAOException e) {

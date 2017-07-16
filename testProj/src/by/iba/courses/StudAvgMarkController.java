@@ -62,7 +62,6 @@ public class StudAvgMarkController extends HttpServlet {
 	 try {
 		 	StudentDAO dao = mydb.getStudentDAO(mydb.getConnection());
 		 	dao.recalcAvgMark();
-		 	//con.close();
 	 } 
 	 catch(DAOException e) {
 		 	throw new ServletException(e);

@@ -61,7 +61,6 @@ public class MarkListController extends HttpServlet {
 	 try {
 		 	MarkDAO dao = mydb.getMarkDAO(mydb.getConnection());
 		 	dataList = dao.getAll();
-		 	//con.close();
 	 } 
 	 catch(DAOException e) {
 		 	throw new ServletException(e);
