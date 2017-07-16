@@ -50,10 +50,10 @@ public class RecalcStudController extends HttpServlet {
 		 response.setContentType("text/html");
 		 String page="StudListController";
 		  
-		// ConnectionFactory factory = MySQLConnection.getInstance();
+		
 		ConnectDB mydb = new ConnectMySQL();
 		 try  {
-			 	StudentDAO dao = mydb.getStudentDAO(MySQLConnection.getInstance().createConnection());
+			 	StudentDAO dao = mydb.getStudentDAO(mydb.getConnection());
 			 	dao.recalcAvgMark();
 			 	//con.close();
 		 } 

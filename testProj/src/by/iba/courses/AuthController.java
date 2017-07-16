@@ -58,7 +58,7 @@ public class AuthController extends HttpServlet {
 	private User getUser(String login, String password) throws ServletException {		
 		
 		User user  = new User();
-		ConnectionFactory factory = MySQLConnection.getInstance();
+		ConnectionFactory factory = new MySQLConnection();
 		ConnectDB mydb = new ConnectMySQL();	  
 		 try  {		 
 			 	UserDAO dao = mydb.getUserDAO(factory.createConnection());
