@@ -7,6 +7,19 @@ public class Study {
 		private int hours;
 		private int professorId;
 		private double avgMark;
+		
+		public Study() {
+			super();
+		}
+		
+		public Study(int id, String name, int hours, int professorId) {
+			super();
+			this.id = id;
+			this.name = name;
+			this.hours = hours;
+			this.professorId = professorId;
+			this.avgMark = avgMark;
+		}
 		public int getId() {
 			return id;
 		}

@@ -8,13 +8,13 @@ import by.iba.courses.bean.Study;
 
 public interface StudyDAO {
 	
-    public Study add(Study study) throws DAOException;
+    public String add(Study study) throws DAOException;
 
     public Study read(int key) throws DAOException;
 
-    public void update(Study study);
+    public void update(Study study) throws DAOException;
 
-    public void delete(Study study);
+    public void delete(int id) throws DAOException;
     
     public List<Study> getAll() throws DAOException;
 

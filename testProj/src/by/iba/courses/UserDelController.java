@@ -29,12 +29,9 @@ public class UserDelController extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		delete(request, response);
-		//request.getRequestDispatcher("UserListController").forward(request, response);
 	}
 
 	protected void delete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -47,24 +44,17 @@ public class UserDelController extends HttpServlet {
 		 ConnectDB mydb = new ConnectMySQL();	  
 		 try  {
 			 	UserDAO dao = mydb.getUserDAO( mydb.getConnection());
-			 	dao.delete(username, user);  
-			 	//con.close();
+			 	dao.delete(username, user);
 			 			 	
 		 } 
 		 catch(DAOException e) {
 			 	throw new ServletException(e);
 		 }
 		 
-		 /*if(res != 0) {
-		 		request.setAttribute("msg", res);
-				request.getRequestDispatcher("UserFormController").forward(request, response);
-		 	} else {*/
 		 		request.setAttribute("msg", "Success!");
 				request.getRequestDispatcher("UserListController").forward(request, response);
 		 	
 	}
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 
 }

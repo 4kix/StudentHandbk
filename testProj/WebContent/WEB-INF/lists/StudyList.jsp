@@ -46,7 +46,8 @@
 							<td>${study.avgMark}</td>
 							<td>
 								<form action="StudyFormController" method="post" >
-									<input class="btn btn-warning" type="submit" value="Edit"/>
+									<input class="btn btn-warning" type="submit" name="action" value="Edit"/>
+									<input type="hidden" name="id" value="${study.id}">
 									<input type="hidden" name="name" value="${study.name}">
 									<input type="hidden" name="hours" value="${study.hours}">
 									<input type="hidden" name="professorId" value="${study.professorId}">
@@ -64,8 +65,8 @@
     	<input class="btn" type="submit" value="Recalc AvgMark" />
 	</form>	
 	<c:if test="${user.role eq 'admin'}">	
-	<form class="forms" action="StudyFormController">
-    	<input class="btn btn-success" type="submit" value="Add" />
+	<form class="forms" action="StudyFormController" method="post">
+    	<input class="btn btn-success" type="submit" name="action" value="Add" />
 	</form>
 	</c:if>
 </div>

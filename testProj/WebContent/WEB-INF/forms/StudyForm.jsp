@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -18,7 +19,7 @@
 	</form>
 <div class="block">
 	<h3>Study info</h3>
-	<form class="form-horizontal" action="StudySaveController">
+	<form class="form-horizontal" action="StudySaveController" method="post">
 	<div class="form-group">
 		<Font class="control-label" size="3"> Name: </Font>
 		<div class="col-10">
@@ -39,8 +40,10 @@
 			<Input type="text" name="avgMark" value="${avgMark}" disabled>
 		<br>
 		<br>		
-			<input type="submit" value="Save" />
-			<input formaction="StudyDelController" type="submit" value="Delete" />
+			<input class="btn btn-success" type="submit" value="Save" />
+			<input class="btn btn-danger" formaction="StudyDelController" type="submit" value="Delete"/>
+			<input type="hidden" name="action" value="${action}">
+			<input type="hidden" name="id" value="${id}">
 	</form>
 	
 </div>

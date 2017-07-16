@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,9 +21,34 @@ public class StudyDAOImpl implements StudyDAO {
     }
 
 	@Override
-	public Study add(Study study) throws DAOException {
-		// TODO Auto-generated method stub
-		return null;
+	public String add(Study study) throws DAOException {
+
+		try {
+			String sql = "INSERT INTO lapusha.studies (NAME, HOURS, PROFESSOR_ID) VALUES (?, ?, ?)";
+			PreparedStatement stm = connection.prepareStatement(sql);
+			
+			stm.setString(1, study.getName());
+			stm.setInt(2, study.getHours());
+			stm.setInt(3, study.getProfessorId());
+			//stm.setDouble(4, study.getAvgMark());
+			
+			stm.executeUpdate();
+			stm.close();
+		} catch (SQLIntegrityConstraintViolationException e) {
+			return "Key Constraint Error";
+		}
+		catch (SQLException e) {
+			throw new DAOException(e);
+		} finally {
+			if (connection != null) {
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					throw new DAOException(e);
+				}
+			}
+		}
+		return "Success!";
 	}
 
 	@Override
@@ -47,14 +73,53 @@ public class StudyDAOImpl implements StudyDAO {
 	}
 
 	@Override
-	public void update(Study study) {
-		// TODO Auto-generated method stub
+	public void update(Study study) throws DAOException {
+		String sql = "UPDATE lapusha.studies SET NAME= ?, HOURS= ?, PROFESSOR_ID= ? WHERE ID= ?";
+		try {
+			PreparedStatement s = connection.prepareStatement(sql);
+			
+			s.setString(1, study.getName());
+			s.setInt(2, study.getHours());
+			s.setInt(3, study.getProfessorId());
+			s.setInt(4, study.getId());
+			
+			s.executeUpdate();
+			s.close();
+		} catch (SQLException e) {
+			throw new DAOException(e);
+		} finally {
+			if (connection != null) {
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					throw new DAOException(e);
+				}
+			}
+		}
 
 	}
 
 	@Override
-	public void delete(Study study) {
-		// TODO Auto-generated method stub
+	public void delete(int id) throws DAOException {
+
+		String sql = "DELETE FROM lapusha.studies WHERE ID = ?;";
+		PreparedStatement stm;
+		try {
+			stm = connection.prepareStatement(sql);
+			stm.setInt(1, id);
+			stm.executeUpdate();
+			stm.close();
+		} catch (SQLException e) {
+			throw new DAOException(e);
+		} finally {
+			if (connection != null) {
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					throw new DAOException(e);
+				}
+			}
+		}
 
 	}
 

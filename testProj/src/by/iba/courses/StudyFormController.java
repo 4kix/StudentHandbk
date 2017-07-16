@@ -37,6 +37,8 @@ public class StudyFormController extends HttpServlet {
 	
 	protected void fillFields(HttpServletRequest request, HttpServletResponse response) {
 		
+		request.setAttribute("action", request.getParameter("action"));	
+		request.setAttribute("id", request.getParameter("id"));
 		request.setAttribute("name", request.getParameter("name"));
 		request.setAttribute("hours", request.getParameter("hours"));
 		request.setAttribute("professorId", request.getParameter("professorId"));

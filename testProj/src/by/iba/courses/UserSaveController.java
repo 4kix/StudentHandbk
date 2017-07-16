@@ -35,8 +35,6 @@ public class UserSaveController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
-		
 		if("Edit".equals(request.getParameter("action"))) {
 			edit(request, response);   
 		}	
@@ -44,7 +42,6 @@ public class UserSaveController extends HttpServlet {
 		addNew(request, response);
 		}
 		
-		//request.getRequestDispatcher("/WEB-INF/forms/UserForm.jsp").forward(request, response);
 	}
 
 	protected void addNew(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -87,10 +84,6 @@ public class UserSaveController extends HttpServlet {
 			 	throw new ServletException(e);
 		 }
 		 
-		 /*if(res != 0) {
-		 		request.setAttribute("msg", res);
-				request.getRequestDispatcher("UserFormController").forward(request, response);
-		 	} else {*/
 		 		request.setAttribute("msg", "Success!");
 				request.getRequestDispatcher("UserListController").forward(request, response);
 		 	
