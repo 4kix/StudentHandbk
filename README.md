@@ -1,21 +1,23 @@
-# Веб-приложение «Электронный справочник успеваемости студентов университета»
+# Web application "Electronic student's handbook"
 
-**Использованные технологии**: Java EE, Servlets, MySQL, DB2, JSP / JSTL, Bootstrap, CSS.
+**Used technologies**: Java EE, Servlets, MySQL, DB2, JSP / JSTL, Bootstrap, CSS.
 
-Целью разработки приложения является обеспечение доступа к информации о студентах и преподавателях, а так же управление ей.
+The goal of the application development is to provide access to the information about students and teachers, and to manage it.
 
-**Требования**:
-1.	Авторизация пользователей. 3 роли: Студент, Преподаватель, Админ.
-2.	Реализовать следующие страницы: 
--	Чтение, редактирование (для админа) групп.
--	Чтение, редактирование (для админа) студентов.
--	Чтение, добавление (для админа и преподавателя) оценок.
--	Чтение, редактирование (для админа) преподавателей.
--	Чтение, редактирование (для админа) предметов.
--	Чтение (для админов), редактирование (для админа) пользователей приложения.
-3.	Реализовать вызов хранимой процедуры пересчета средних оценок для групп, студентов, предметов, преподавателей.
-4.	Реализация навигации по сайту.
+**Requirements**:
+1.	Authorization of users. 3 roles: Student, Teacher, Admin.
+2.	Implement the following pages
+-	Reading, editing (for admin) groups.
+- Reading, editing (for admin) students.
+- Reading, adding (for the administrator and teacher) marks.
+- Reading, editing (for admin) teachers.
+- Reading, editing (for admin) subjects.
+- Reading (for admins), editing (for admin) users of the application.
+3.	Implement a call of the stored procedure for recalculating average marks for groups, students, subjects, teachers.
+4.	Implement a site navigation.
 
-**Модель данных:**
+**Data model:**
 
 ![StudentFandbk](img/data_model.jpg)
+
+[View screenshots](https://github.com/4kix/StudentHandbk/tree/master/img/screenshots)
